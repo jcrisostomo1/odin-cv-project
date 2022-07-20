@@ -3,8 +3,8 @@ import '../styles/General.css'
 import Output from "./Output";
 
 class General extends Component {
-	constructor() {
-      super();
+	constructor(props) {
+      super(props);
 
   this.state = {
       firstName: '',
@@ -21,19 +21,21 @@ class General extends Component {
 
   this.onSubmitTask = (e) => {
     e.preventDefault();
-    console.log(this.state)
-    
+    this.props.getGeneralInfo(this.state);
   };
 
+  this.onTrigger = (e) => {
+    this.props.parentCallback(e.target.myname.value);
+    e.preventDefault();
+  }
 }
-
 
   render() {
     const { firstName, lastName, email, phone } = this.state;
-
+    
     return (
       <div>
-				<form  >
+				<form onSubmit = {this.onSubmitTask}>
           <div>
             <input onChange={this.handleChange} value={firstName} type="text" id="firstName" placeholder="First Name"/>
           </div> 
@@ -48,8 +50,6 @@ class General extends Component {
           </div> 
           <button>Submit</button>
         </form>
-        <h1>{firstName}</h1>
-        <Output firstName={firstName} lastName={lastName} email={email} phone={phone}/>
       </div>
     );
 	}
