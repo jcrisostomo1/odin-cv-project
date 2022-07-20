@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import General from "./components/General";
+import Output from "./components/Output";
 import './styles/App.css' 
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -16,6 +17,7 @@ class App extends Component {
         </header>
         <main>
         <General/>
+        <Output/>
         </main>
         <footer>
           <a href="https://github.com/jcrisostomo1" target="_blank"><i className="fa fa-github fa-lg"></i></a>
