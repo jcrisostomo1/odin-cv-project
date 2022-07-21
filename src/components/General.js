@@ -37,16 +37,16 @@ class General extends Component {
       <div>
 				<form onSubmit = {this.onSubmitTask}>
           <div>
-            <input onChange={this.handleChange} value={firstName} type="text" id="firstName" placeholder="First Name"/>
+            <input onChange={this.handleChange} value={firstName} type="text" id="firstName" placeholder="First Name" required/>
           </div> 
           <div>
-            <input onChange={this.handleChange} value={lastName} type="text" id="lastName" placeholder="Last Name"/>
+            <input onChange={this.handleChange} value={lastName} type="text" id="lastName" placeholder="Last Name" required/>
           </div> 
           <div>
-            <input onChange={this.handleChange} value={email} type="text" id="email" placeholder="Email"/>
+            <input onChange={this.handleChange} value={email} type="email" id="email" placeholder="Email" required/>
           </div> 
           <div>
-            <input onChange={this.handleChange} value={phone} type="text" id="phone" placeholder="Phone"/>
+            <input onChange={this.handleChange} value={phone} type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"id="phone" placeholder="Phone" required/>
           </div> 
           <button>Submit</button>
         </form>
