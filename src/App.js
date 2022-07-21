@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import General from "./components/General";
+import Education from "./components/Education";
 import Output from "./components/Output";
 import './styles/App.css' 
 import 'font-awesome/css/font-awesome.min.css';
