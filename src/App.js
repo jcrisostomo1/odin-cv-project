@@ -11,10 +11,14 @@ class App extends Component {
   
   this.state = {
     educationItems: 1,
-    // educationItems_: {
-    //   educationList: [],
-    //   education: {}
-    // },
+    education: {
+      university: '',
+      city: '',
+      degree: '',
+      subject: '',
+      start: '',
+      end: '',
+    },
     general: {
       firstName: '',
       lastName: '',
@@ -25,6 +29,14 @@ class App extends Component {
   
   this.getGeneralInfo = (childData) => {
     this.setState({
+      education: {
+        university: childData.university,
+        city: childData.city,
+        degree: childData.degree,
+        subject: childData.subject,
+        start: childData.start,
+        end: childData.end,
+      },
       general: {
         firstName: childData.firstName,
         lastName: childData.lastName,
@@ -45,6 +57,7 @@ class App extends Component {
 
   render() {
     const { firstName, lastName, email, phone} = this.state.general;
+    const { university, city, degree, subject, start, end} = this.state.education;
     return (
       <div>
         <header>
@@ -53,10 +66,17 @@ class App extends Component {
         <main>
         <h3>Information</h3>
         <General getGeneralInfo={this.getGeneralInfo}/>
-        <h3>Experience</h3>
-        {Array(this.state.educationItems).fill(0).map((_, key) => <Education key={key}/>)}
+        <h3>Education</h3>
+        {Array(this.state.educationItems).fill(0).map((_, key) => <Education key={key} getGeneralInfo = {this.getGeneralInfo}/>)}
         <button onClick={this.addEducation}>Add Education</button>
+        <h3>Experience</h3>
         <Output firstName={firstName} lastName={lastName} email={email} phone={phone}/>
+        <h6>{university}</h6>
+        <h6>{city}</h6>
+        <h6>{degree}</h6>
+        <h6>{subject}</h6>
+        <h6>{start}</h6>
+        <h6>{end}</h6>
         </main>
         <footer>
           <a href="https://github.com/jcrisostomo1" target="_blank"><i className="fa fa-github fa-lg"></i></a>

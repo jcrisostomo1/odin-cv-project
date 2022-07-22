@@ -24,10 +24,6 @@ class General extends Component {
     this.props.getGeneralInfo(this.state);
   };
 
-  this.onTrigger = (e) => {
-    this.props.parentCallback(e.target.myname.value);
-    e.preventDefault();
-  }
 }
 
   render() {
