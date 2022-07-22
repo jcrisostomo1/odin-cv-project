@@ -15,6 +15,7 @@ class Education extends Component {
   }
 
   this.handleChange  = (e) =>  {
+    console.log(e.target.id)
     this.setState({
       [e.target.id]: e.target.value,
     });
@@ -43,15 +44,15 @@ class Education extends Component {
           <input onChange={this.handleChange} value={degree} type="text" id="degree" placeholder="Degree" required/>
         </div> 
         <div>
-          <input  onChange={this.handleChange} value={subject} type="text" id="subject" placeholder="Subject" required/>
+          <input onChange={this.handleChange} value={subject} type="text" id="subject" placeholder="Subject" required/>
         </div> 
         <div>
-          <label onChange={this.handleChange} value={start} htmlFor='start'>Start: </label>
-          <input  type="date" id="start" required/>
+          <label htmlFor='start'>Start: </label>
+          <input onChange={this.handleChange} value={start} type="date" id="start" required/>
         </div> 
         <div>
-          <label onChange={this.handleChange} value={end} htmlFor='end'>End: </label>
-          <input  type="date" id="end" required/>
+          <label htmlFor='end'>End: </label>
+          <input onChange={this.handleChange} value={end} type="date" id="end" required/>
         </div>
         <button>Add</button> 
       </form>

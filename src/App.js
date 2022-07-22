@@ -71,12 +71,12 @@ class App extends Component {
         <button onClick={this.addEducation}>Add Education</button>
         <h3>Experience</h3>
         <Output firstName={firstName} lastName={lastName} email={email} phone={phone}/>
-        <h6>{university}</h6>
-        <h6>{city}</h6>
-        <h6>{degree}</h6>
-        <h6>{subject}</h6>
-        <h6>{start}</h6>
-        <h6>{end}</h6>
+        <h3>{university}</h3>
+        <h3>{city}</h3>
+        <h3>{degree}</h3>
+        <h3>{subject}</h3>
+        <h3>{start}</h3>
+        <h3>{end}</h3>
         </main>
         <footer>
           <a href="https://github.com/jcrisostomo1" target="_blank"><i className="fa fa-github fa-lg"></i></a>
