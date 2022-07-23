@@ -56,7 +56,6 @@ class Education extends Component {
         </div>
         <button>Add</button> 
       </form>
-      
     </div>
     )
   }

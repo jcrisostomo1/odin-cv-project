@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import General from "./components/General";
 import Education from "./components/Education";
+import Experience from "./components/Experience";
 import Output from "./components/Output";
 import './styles/App.css' 
 import 'font-awesome/css/font-awesome.min.css';
@@ -70,6 +71,7 @@ class App extends Component {
         {Array(this.state.educationItems).fill(0).map((_, key) => <Education key={key} getGeneralInfo = {this.getGeneralInfo}/>)}
         <button onClick={this.addEducation}>Add Education</button>
         <h3>Experience</h3>
+        <Experience/>
         <Output firstName={firstName} lastName={lastName} email={email} phone={phone}/>
         <h3>{university}</h3>
         <h3>{city}</h3>
