@@ -13,6 +13,18 @@ export default class Experience extends Component {
       end: ''
     }
 
+    this.handleChange  = (e) =>  {
+      console.log(e.target.id)
+      this.setState({
+        [e.target.id]: e.target.value,
+      });
+    }
+  
+    this.onSubmitTask = (e) => {
+      e.preventDefault();
+      this.props.getStateInfo(this.state);
+      console.log(this.state)
+    };
   }
 
   render() {

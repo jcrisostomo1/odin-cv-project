@@ -15,7 +15,6 @@ class Education extends Component {
   }
 
   this.handleChange  = (e) =>  {
-    console.log(e.target.id)
     this.setState({
       [e.target.id]: e.target.value,
     });
@@ -23,7 +22,7 @@ class Education extends Component {
 
   this.onSubmitTask = (e) => {
     e.preventDefault();
-    this.props.getGeneralInfo(this.state);
+    this.props.getStateInfo(this.state);
     console.log(this.state)
   };
 }

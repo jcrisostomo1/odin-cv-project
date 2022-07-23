@@ -21,7 +21,8 @@ class General extends Component {
 
   this.onSubmitTask = (e) => {
     e.preventDefault();
-    this.props.getGeneralInfo(this.state);
+    this.props.getStateInfo(this.state);
+    console.log(this.state)
   };
 
 }

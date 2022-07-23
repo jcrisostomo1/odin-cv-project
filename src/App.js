@@ -12,6 +12,12 @@ class App extends Component {
   
   this.state = {
     educationItems: 1,
+    general: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: ''
+    },
     education: {
       university: '',
       city: '',
@@ -20,16 +26,23 @@ class App extends Component {
       start: '',
       end: '',
     },
-    general: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      phone: ''
-    }
+    experience: {
+      companyName: '',
+      positionTitle: '',
+      jobDescription: '',
+      start: '',
+      end: ''
+    },
   }
   
-  this.getGeneralInfo = (childData) => {
+  this.getStateInfo = (childData) => {
     this.setState({
+      general: {
+        firstName: childData.firstName,
+        lastName: childData.lastName,
+        email: childData.email,
+        phone: childData.phone
+      },
       education: {
         university: childData.university,
         city: childData.city,
@@ -38,11 +51,12 @@ class App extends Component {
         start: childData.start,
         end: childData.end,
       },
-      general: {
-        firstName: childData.firstName,
-        lastName: childData.lastName,
-        email: childData.email,
-        phone: childData.phone
+      experience: {
+        companyName: '',
+        positionTitle: '',
+        jobDescription: '',
+        start: '',
+        end: ''
       }
     });
   }
@@ -53,7 +67,6 @@ class App extends Component {
     })
     console.log(this.state.educationItems)
   }
-  
 }
 
   render() {
@@ -66,12 +79,12 @@ class App extends Component {
         </header>
         <main>
         <h3>Information</h3>
-        <General getGeneralInfo={this.getGeneralInfo}/>
+        <General getStateInfo={this.getStateInfo}/>
         <h3>Education</h3>
-        {Array(this.state.educationItems).fill(0).map((_, key) => <Education key={key} getGeneralInfo = {this.getGeneralInfo}/>)}
+        {Array(this.state.educationItems).fill(0).map((_, key) => <Education key={key} getStateInfo = {this.getStateInfo}/>)}
         <button onClick={this.addEducation}>Add Education</button>
         <h3>Experience</h3>
-        <Experience/>
+        <Experience getStateInfo={this.getStateInfo}/>
         <Output firstName={firstName} lastName={lastName} email={email} phone={phone}/>
         <h3>{university}</h3>
         <h3>{city}</h3>
