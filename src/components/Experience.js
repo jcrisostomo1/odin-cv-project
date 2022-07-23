@@ -29,7 +29,10 @@ export default class Experience extends Component {
 
   render() {
     const {companyName, positionTitle, jobDescription, start, end} = this.state;
+    
     return (
+      <>
+      <h3>{this.props.title}</h3>
       <div className='main'>
       <form onSubmit = {this.onSubmitTask}>
         <div>
@@ -51,8 +54,8 @@ export default class Experience extends Component {
         </div>
         <button>Add</button> 
       </form>
-    </div>
-    )
-  }
+      </div>
+      </>
+    )}
 }
 

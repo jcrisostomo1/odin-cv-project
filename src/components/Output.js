@@ -11,7 +11,6 @@ class Output extends Component {
 
 		return (
 			<>
-			<div>Output</div>
 			<p>{firstName}</p>
 			<p>{lastName}</p>
 			<p>{email}</p>

@@ -11,6 +11,7 @@ class App extends Component {
     super();
   
   this.state = {
+    preview: false,
     educationItems: 1,
     general: {
       firstName: '',
@@ -61,6 +62,12 @@ class App extends Component {
     });
   }
 
+  this.showPreview = () => {
+    this.setState({
+      preview: true,
+    })
+  }
+
   this.addEducation = () => {
     this.setState({
       educationItems: this.state.educationItems + 1
@@ -72,26 +79,18 @@ class App extends Component {
   render() {
     const { firstName, lastName, email, phone} = this.state.general;
     const { university, city, degree, subject, start, end} = this.state.education;
+    const { preview } = this.state;
     return (
       <div>
         <header>
           <h1>CV Application</h1>
         </header>
         <main>
-        <h3>Information</h3>
-        <General getStateInfo={this.getStateInfo}/>
-        <h3>Education</h3>
-        {Array(this.state.educationItems).fill(0).map((_, key) => <Education key={key} getStateInfo = {this.getStateInfo}/>)}
-        <button onClick={this.addEducation}>Add Education</button>
-        <h3>Experience</h3>
-        <Experience getStateInfo={this.getStateInfo}/>
-        <Output firstName={firstName} lastName={lastName} email={email} phone={phone}/>
-        <h3>{university}</h3>
-        <h3>{city}</h3>
-        <h3>{degree}</h3>
-        <h3>{subject}</h3>
-        <h3>{start}</h3>
-        <h3>{end}</h3>
+        {preview !== true && <General title={"Information"} getStateInfo={this.getStateInfo}/>}
+        {preview !== true && <Education title={"Education"} getStateInfo = {this.getStateInfo}/>}
+        {preview !== true && <Experience title={"Experience"} getStateInfo={this.getStateInfo}/>}
+        <button onClick={this.showPreview}>Preview</button>
+        {preview === true && <Output firstName={firstName} lastName={lastName} email={email} phone={phone}/>}
         </main>
         <footer>
           <a href="https://github.com/jcrisostomo1" target="_blank"><i className="fa fa-github fa-lg"></i></a>

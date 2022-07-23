@@ -24,13 +24,14 @@ class General extends Component {
     this.props.getStateInfo(this.state);
     console.log(this.state)
   };
-
 }
 
   render() {
     const { firstName, lastName, email, phone } = this.state;
     
     return (
+      <>
+      <h3>{this.props.title}</h3>
       <div>
 				<form onSubmit = {this.onSubmitTask}>
           <div>
@@ -48,8 +49,8 @@ class General extends Component {
           <button>Submit</button>
         </form>
       </div>
-    );
-	}
+      </>
+    )}
 }
 
 export default General;
