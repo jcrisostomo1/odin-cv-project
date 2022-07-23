@@ -53,18 +53,18 @@ class App extends Component {
         end: childData.end,
       },
       experience: {
-        companyName: '',
-        positionTitle: '',
-        jobDescription: '',
-        start: '',
-        end: ''
+        companyName: childData.companyName,
+        positionTitle: childData.positionTitle,
+        jobDescription: childData.jobDescription,
+        start: childData.start,
+        end: childData.end
       }
     });
   }
 
   this.showPreview = () => {
     this.setState({
-      preview: true,
+      preview: !this.state.preview,
     })
   }
 
