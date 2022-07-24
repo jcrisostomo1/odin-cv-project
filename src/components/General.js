@@ -46,23 +46,23 @@ class General extends Component {
       <div>
 				<form>
           <div>
-            {generalInfoSaved === false?<input onChange={this.handleChange} value={firstName} type="text" id="firstName" placeholder="First Name" required/>:<p>First Name: {firstName}</p>}
+            {generalInfoSaved?<p>First Name: {firstName}</p>:<input onChange={this.handleChange} value={firstName} type="text" id="firstName" placeholder="First Name" required/>}
           </div> 
           <div>
-            {generalInfoSaved === false?<input onChange={this.handleChange} value={lastName} type="text" id="lastName" placeholder="Last Name" required/>:<p>Last Name: {lastName}</p>}
+            {generalInfoSaved?<p>Last Name: {lastName}</p>:<input onChange={this.handleChange} value={lastName} type="text" id="lastName" placeholder="Last Name" required/>}
           </div> 
           <div>
-            {generalInfoSaved === false?<input onChange={this.handleChange} value={email} type="email" id="email" placeholder="Email" required/>:<p>Email: {email}</p>}
+            {generalInfoSaved?<p>Email: {email}</p>:<input onChange={this.handleChange} value={email} type="email" id="email" placeholder="Email" required/>}
           </div> 
           <div>
-            {generalInfoSaved === false?<input onChange={this.handleChange} value={phone} type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"id="phone" placeholder="Phone" required/>:<p>Phone: {phone}</p>}
+            {generalInfoSaved?<p>Phone: {phone}</p>:<input onChange={this.handleChange} value={phone} type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"id="phone" placeholder="Phone" required/>}
           </div> 
-          {generalInfoSaved===false?<button onClick={this.onSaveInfo}>Save</button>:<button onClick={this.onEditInfo}>Edit</button>}
+          {generalInfoSaved?<button onClick={this.onEditInfo}>Edit</button>:<button onClick={this.onSaveInfo}>Save</button>}
         </form>
       </div>
       </>
-    );
-}
+    )
+  }
 }
 
 export default General;

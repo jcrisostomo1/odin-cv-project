@@ -6,6 +6,7 @@ class Education extends Component {
 		super(props)
   
     this.state = {
+      educationInfoSaved: false,
       university: '',
       city: '',
       degree: '',
@@ -17,26 +18,33 @@ class Education extends Component {
   this.handleChange  = (e) =>  {
     this.setState({
       [e.target.id]: e.target.value,
-    });
+    })
   }
 
-  this.onSubmitTask = (e) => {
+  this.onSaveInfo = (e) => {
     e.preventDefault();
     this.props.getStateInfo(this.state);
     console.log(this.state)
-  };
+  }
+
+  this.onEditInfo = (e) => {
+    e.preventDefault();
+    this.setState({
+      educationInfoSaved: false,
+    })
+  }
 }
 
   render() {
-    const { university, city, degree, subject, start, end} = this.state;
+    const { university, city, degree, subject, start, end, educationInfoSaved} = this.state;
 
     return (
       <>
         <h3>{this.props.title}</h3>
         <div className='main'>
-        <form onSubmit = {this.onSubmitTask}>
+        <form>
           <div>
-            <input onChange={this.handleChange} value={university} type="text" id="university" placeholder="University" required/>
+            {educationInfoSaved?<p>University: {university}</p>:<input onChange={this.handleChange} value={university} type="text" id="university" placeholder="University" required/>}
           </div> 
           <div>
             <input onChange={this.handleChange} value={city} type="text" id="city" placeholder="City" required/>
@@ -55,7 +63,7 @@ class Education extends Component {
             <label htmlFor='end'>End: </label>
             <input onChange={this.handleChange} value={end} type="date" id="end" required/>
           </div>
-          <button>Add</button> 
+          {educationInfoSaved?<button onClick={this.onEditInfo}>Edit</button>:<button onClick={this.onSaveInfo}>Add</button>} 
         </form>
       </div>
     </>
