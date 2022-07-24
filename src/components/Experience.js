@@ -9,8 +9,8 @@ export default class Experience extends Component {
       companyName: '',
       positionTitle: '',
       jobDescription: '',
-      start: '',
-      end: ''
+      exStart: '',
+      exSend: ''
     }
 
     this.handleChange  = (e) =>  {
@@ -28,7 +28,7 @@ export default class Experience extends Component {
   }
 
   render() {
-    const {companyName, positionTitle, jobDescription, start, end} = this.state;
+    const {companyName, positionTitle, jobDescription, exStart, exEnd} = this.state;
     
     return (
       <>
@@ -46,11 +46,11 @@ export default class Experience extends Component {
         </div> 
         <div>
           <label htmlFor='start'>Start: </label>
-          <input onChange={this.handleChange} value={start} type="date" id="start" required/>
+          <input onChange={this.handleChange} value={exStart} type="date" id="start" required/>
         </div> 
         <div>
           <label htmlFor='end'>End: </label>
-          <input onChange={this.handleChange} value={end} type="date" id="end" required/>
+          <input onChange={this.handleChange} value={exEnd} type="date" id="end" required/>
         </div>
         <button>Add</button> 
       </form>

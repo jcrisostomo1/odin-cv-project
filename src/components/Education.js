@@ -25,6 +25,9 @@ class Education extends Component {
     e.preventDefault();
     this.props.getStateInfo(this.state);
     console.log(this.state)
+    this.setState({
+      educationInfoSaved: true
+    })
   }
 
   this.onEditInfo = (e) => {
@@ -47,23 +50,23 @@ class Education extends Component {
             {educationInfoSaved?<p>University: {university}</p>:<input onChange={this.handleChange} value={university} type="text" id="university" placeholder="University" required/>}
           </div> 
           <div>
-            <input onChange={this.handleChange} value={city} type="text" id="city" placeholder="City" required/>
+            {educationInfoSaved?<p>City: {city}</p>:<input onChange={this.handleChange} value={city} type="text" id="city" placeholder="City" required/>}
           </div> 
           <div>
-            <input onChange={this.handleChange} value={degree} type="text" id="degree" placeholder="Degree" required/>
+            {educationInfoSaved?<p>Degree: {degree}</p>:<input onChange={this.handleChange} value={degree} type="text" id="degree" placeholder="Degree" required/>}
           </div> 
           <div>
-            <input onChange={this.handleChange} value={subject} type="text" id="subject" placeholder="Subject" required/>
+            {educationInfoSaved?<p>Subject: {subject}</p>:<input onChange={this.handleChange} value={subject} type="text" id="subject" placeholder="Subject" required/>}
           </div> 
           <div>
-            <label htmlFor='start'>Start: </label>
-            <input onChange={this.handleChange} value={start} type="date" id="start" required/>
+            {educationInfoSaved?<p>Start: {start}</p>:<><label htmlFor='start'>Start: </label>
+            <input onChange={this.handleChange} value={start} type="date" id="start" required/></>}
           </div> 
           <div>
-            <label htmlFor='end'>End: </label>
-            <input onChange={this.handleChange} value={end} type="date" id="end" required/>
+            {educationInfoSaved?<p>End: {end}</p>:<><label htmlFor='end'>End: </label>
+            <input onChange={this.handleChange} value={end} type="date" id="end" required/></>}
           </div>
-          {educationInfoSaved?<button onClick={this.onEditInfo}>Edit</button>:<button onClick={this.onSaveInfo}>Add</button>} 
+          {educationInfoSaved?<button onClick={this.onEditInfo}>Edit</button>:<button onClick={this.onSaveInfo}>Save</button>} 
         </form>
       </div>
     </>
@@ -71,5 +74,3 @@ class Education extends Component {
 }
 
 export default Education;
-
-

@@ -56,8 +56,8 @@ class App extends Component {
         companyName: childData.companyName,
         positionTitle: childData.positionTitle,
         jobDescription: childData.jobDescription,
-        start: childData.start,
-        end: childData.end
+        start: childData.exStart,
+        end: childData.exEnd
       }
     });
   }
@@ -79,6 +79,7 @@ class App extends Component {
   render() {
     const { firstName, lastName, email, phone} = this.state.general;
     const { university, city, degree, subject, start, end} = this.state.education;
+    const { companyName, positionTitle, jobDescription, exStart, exEnd } = this.state.experience;
     const { preview } = this.state;
     return (
       <div>
@@ -91,6 +92,7 @@ class App extends Component {
         {preview !== true && <Experience title={"Experience"} getStateInfo={this.getStateInfo}/>}
         <button onClick={this.showPreview}>Preview</button>
         {preview === true && <Output firstName={firstName} lastName={lastName} email={email} phone={phone}/>}
+        <p>{companyName}</p>
         </main>
         <footer>
           <a href="https://github.com/jcrisostomo1" target="_blank"><i className="fa fa-github fa-lg"></i></a>
