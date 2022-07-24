@@ -56,12 +56,12 @@ export default class Experience extends Component {
          {experienceInfoSaved?<p>Job Description: {jobDescription}</p>:<textarea onChange={this.handleChange} value={jobDescription} id="jobDescription" placeholder="Job Description" required/>}
         </div> 
         <div>
-          <label htmlFor='start'>Start: </label>
-          <input onChange={this.handleChange} value={exStart} type="date" id="exStart" required/>
+          {experienceInfoSaved?<p>Start: {exStart}</p>:<><label htmlFor='start'>Start: </label>
+          <input onChange={this.handleChange} value={exStart} type="date" id="exStart" required/></>}
         </div> 
         <div>
-          <label htmlFor='end'>End: </label>
-          <input onChange={this.handleChange} value={exEnd} type="date" id="exEnd" required/>
+          {experienceInfoSaved?<p>End: {exEnd}</p>:<><label htmlFor='end'>End: </label>
+          <input onChange={this.handleChange} value={exEnd} type="date" id="exEnd" required/></>}
         </div>
         {experienceInfoSaved?<button onClick={this.onEditInfo}>Edit</button>:<button onClick={this.onSaveInfo}>Save</button> }
       </form>
