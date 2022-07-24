@@ -57,7 +57,7 @@ class General extends Component {
           <div>
             {generalInfoSaved === false?<input onChange={this.handleChange} value={phone} type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"id="phone" placeholder="Phone" required/>:<p>Phone: {phone}</p>}
           </div> 
-          {generalInfoSaved===false?<button onClick={this.onSaveInfo}>Save</button>:<button>Edit</button>}
+          {generalInfoSaved===false?<button onClick={this.onSaveInfo}>Save</button>:<button onClick={this.onEditInfo}>Edit</button>}
         </form>
       </div>
       </>
