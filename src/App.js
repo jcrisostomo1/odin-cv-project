@@ -82,7 +82,7 @@ class App extends Component {
     const { preview } = this.state;
     return (
       <div>
-        <header>
+        <header> 
           <h1>CV Application</h1>
         </header>
         <main>
