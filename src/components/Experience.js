@@ -46,11 +46,11 @@ export default class Experience extends Component {
         </div> 
         <div>
           <label htmlFor='start'>Start: </label>
-          <input onChange={this.handleChange} value={exStart} type="date" id="start" required/>
+          <input onChange={this.handleChange} value={exStart} type="date" id="exStart" required/>
         </div> 
         <div>
           <label htmlFor='end'>End: </label>
-          <input onChange={this.handleChange} value={exEnd} type="date" id="end" required/>
+          <input onChange={this.handleChange} value={exEnd} type="date" id="exEnd" required/>
         </div>
         <button>Add</button> 
       </form>

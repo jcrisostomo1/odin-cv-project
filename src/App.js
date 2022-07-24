@@ -49,8 +49,8 @@ class App extends Component {
         city: childData.city,
         degree: childData.degree,
         subject: childData.subject,
-        start: childData.start,
-        end: childData.end,
+        start: childData.edStart,
+        end: childData.edEnd,
       },
       experience: {
         companyName: childData.companyName,
@@ -78,7 +78,7 @@ class App extends Component {
 
   render() {
     const { firstName, lastName, email, phone} = this.state.general;
-    const { university, city, degree, subject, start, end} = this.state.education;
+    const { university, city, degree, subject, edStart, edEnd} = this.state.education;
     const { companyName, positionTitle, jobDescription, exStart, exEnd } = this.state.experience;
     const { preview } = this.state;
     return (

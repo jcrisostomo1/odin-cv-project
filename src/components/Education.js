@@ -11,8 +11,8 @@ class Education extends Component {
       city: '',
       degree: '',
       subject: '',
-      start: '',
-      end: '',
+      edStart: '',
+      edEnd: '',
   }
 
   this.handleChange  = (e) =>  {
@@ -39,7 +39,7 @@ class Education extends Component {
 }
 
   render() {
-    const { university, city, degree, subject, start, end, educationInfoSaved} = this.state;
+    const { university, city, degree, subject, edStart, edEnd, educationInfoSaved} = this.state;
 
     return (
       <>
@@ -59,12 +59,12 @@ class Education extends Component {
             {educationInfoSaved?<p>Subject: {subject}</p>:<input onChange={this.handleChange} value={subject} type="text" id="subject" placeholder="Subject" required/>}
           </div> 
           <div>
-            {educationInfoSaved?<p>Start: {start}</p>:<><label htmlFor='start'>Start: </label>
-            <input onChange={this.handleChange} value={start} type="date" id="start" required/></>}
+            {educationInfoSaved?<p>Start: {edStart}</p>:<><label htmlFor='edStart'>Start: </label>
+            <input onChange={this.handleChange} value={edStart} type="date" id="edStart" required/></>}
           </div> 
           <div>
-            {educationInfoSaved?<p>End: {end}</p>:<><label htmlFor='end'>End: </label>
-            <input onChange={this.handleChange} value={end} type="date" id="end" required/></>}
+            {educationInfoSaved?<p>End: {edEnd}</p>:<><label htmlFor='edEnd'>End: </label>
+            <input onChange={this.handleChange} value={edEnd} type="date" id="edEnd" required/></>}
           </div>
           {educationInfoSaved?<button onClick={this.onEditInfo}>Edit</button>:<button onClick={this.onSaveInfo}>Save</button>} 
         </form>
