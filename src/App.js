@@ -80,19 +80,9 @@ class App extends Component {
     })
     console.log(this.state)
   }
-
-  this.addEducation = () => {
-    this.setState({
-      educationItems: this.state.educationItems + 1
-    })
-    console.log(this.state.educationItems)
-  }
 }
 
   render() {
-    const { firstName, lastName, email, phone} = this.state.general;
-    const { university, city, degree, subject, edStart, edEnd} = this.state.education;
-    const { companyName, positionTitle, jobDescription, exStart, exEnd } = this.state.experience;
     const { preview } = this.state;
     return (
       <div>
@@ -104,7 +94,7 @@ class App extends Component {
         <General title={"Information"} getStateInfo={this.getGeneralInfo}/>
         <Education title={"Education"} getStateInfo = {this.getEducationInfo}/>
         <Experience title={"Experience"} getStateInfo={this.getExperienceInfo}/>
-        <button onClick={this.showPreview}>Preview</button></>:<Output firstName={firstName} lastName={lastName} email={email} phone={phone}/>}
+        <button onClick={this.showPreview}>Preview</button></>:<Output {...this.state}/>}
         </main>
         <footer>
           <a href="https://github.com/jcrisostomo1" target="_blank"><i className="fa fa-github fa-lg"></i></a>
