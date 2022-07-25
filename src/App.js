@@ -57,7 +57,8 @@ class App extends Component {
         subject: childData.subject,
         edStart: childData.edStart,
         edEnd: childData.edEnd,
-      }
+      },
+      educationItems: this.state.educationItems.push(this.state.education)
     })
   }
 
