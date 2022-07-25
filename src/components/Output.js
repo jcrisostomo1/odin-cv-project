@@ -7,9 +7,10 @@ class Output extends Component {
 	}
 
 	render() {
-		const { firstName, lastName, email, phone} = this.state.general;
-    const { university, city, degree, subject, edStart, edEnd} = this.state.education;
-    const { companyName, positionTitle, jobDescription, exStart, exEnd } = this.state.experience;
+		console.log(this.props)
+		const { firstName, lastName, email, phone} = this.props.general;
+    const { university, city, degree, subject, edStart, edEnd} = this.props.education;
+    const { companyName, positionTitle, jobDescription, exStart, exEnd } = this.props.experience;
 		
 		return (
 			<>
@@ -17,6 +18,7 @@ class Output extends Component {
 			<p>{lastName}</p>
 			<p>{email}</p>
 			<p>{phone}</p>
+			<button>Edit</button>
 			</>
 			
 		)
