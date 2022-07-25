@@ -87,12 +87,11 @@ class App extends Component {
           <h1>CV Application</h1>
         </header>
         <main>
-        {preview !== true && <General title={"Information"} getStateInfo={this.getStateInfo}/>}
-        {preview !== true && <Education title={"Education"} getStateInfo = {this.getStateInfo}/>}
-        {preview !== true && <Experience title={"Experience"} getStateInfo={this.getStateInfo}/>}
-        <button onClick={this.showPreview}>Preview</button>
-        {preview === true && <Output firstName={firstName} lastName={lastName} email={email} phone={phone}/>}
-        <p>{companyName}</p>
+        {preview === false?<>
+        <General title={"Information"} getStateInfo={this.getStateInfo}/>
+        <Education title={"Education"} getStateInfo = {this.getStateInfo}/>
+        <Experience title={"Experience"} getStateInfo={this.getStateInfo}/>
+        <button onClick={this.showPreview}>Preview</button></>:<Output firstName={firstName} lastName={lastName} email={email} phone={phone}/>}
         </main>
         <footer>
           <a href="https://github.com/jcrisostomo1" target="_blank"><i className="fa fa-github fa-lg"></i></a>
