@@ -23,7 +23,6 @@ class General extends Component {
   this.onSaveInfo = (e) => {
     e.preventDefault();
     this.props.getStateInfo(this.state);
-    console.log(this.state)
     this.setState({
       generalInfoSaved: true
     })

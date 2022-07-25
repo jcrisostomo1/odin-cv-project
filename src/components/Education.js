@@ -24,7 +24,6 @@ class Education extends Component {
   this.onSaveInfo = (e) => {
     e.preventDefault();
     this.props.getStateInfo(this.state);
-    console.log(this.state)
     this.setState({
       educationInfoSaved: true
     })
@@ -33,7 +32,7 @@ class Education extends Component {
   this.onEditInfo = (e) => {
     e.preventDefault();
     this.setState({
-      educationInfoSaved: false,
+      educationInfoSaved: false
     })
   }
 }

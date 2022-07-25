@@ -34,38 +34,50 @@ class App extends Component {
       start: '',
       end: ''
     },
+    educationItems: []
   }
   
-  this.getStateInfo = (childData) => {
+  this.getGeneralInfo = (childData) => {
     this.setState({
       general: {
         firstName: childData.firstName,
         lastName: childData.lastName,
         email: childData.email,
         phone: childData.phone
-      },
+      }
+    })
+  }
+
+  this.getEducationInfo = (childData) => {
+    this.setState({
       education: {
         university: childData.university,
         city: childData.city,
         degree: childData.degree,
         subject: childData.subject,
-        start: childData.edStart,
-        end: childData.edEnd,
-      },
+        edStart: childData.edStart,
+        edEnd: childData.edEnd,
+      }
+    })
+  }
+
+  this.getExperienceInfo = (childData) => {
+    this.setState({
       experience: {
         companyName: childData.companyName,
         positionTitle: childData.positionTitle,
         jobDescription: childData.jobDescription,
-        start: childData.exStart,
-        end: childData.exEnd
-      }
-    });
+        exStart: childData.exStart,
+        exEnd: childData.exEnd
+      },
+    })
   }
 
   this.showPreview = () => {
     this.setState({
       preview: !this.state.preview,
     })
+    console.log(this.state)
   }
 
   this.addEducation = () => {
@@ -88,9 +100,9 @@ class App extends Component {
         </header>
         <main>
         {preview === false?<>
-        <General title={"Information"} getStateInfo={this.getStateInfo}/>
-        <Education title={"Education"} getStateInfo = {this.getStateInfo}/>
-        <Experience title={"Experience"} getStateInfo={this.getStateInfo}/>
+        <General title={"Information"} getStateInfo={this.getGeneralInfo}/>
+        <Education title={"Education"} getStateInfo = {this.getEducationInfo}/>
+        <Experience title={"Experience"} getStateInfo={this.getExperienceInfo}/>
         <button onClick={this.showPreview}>Preview</button></>:<Output firstName={firstName} lastName={lastName} email={email} phone={phone}/>}
         </main>
         <footer>
