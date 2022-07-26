@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import '../styles/General.css'
-import Output from "./Output";
 
 class General extends Component {
 	constructor(props) {

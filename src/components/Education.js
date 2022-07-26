@@ -13,6 +13,7 @@ class Education extends Component {
       subject: '',
       edStart: '',
       edEnd: '',
+      id: this.props.id
   }
 
   this.handleChange  = (e) =>  {
@@ -23,6 +24,7 @@ class Education extends Component {
 
   this.onSaveInfo = (e) => {
     e.preventDefault();
+    console.log(this.state)
     this.props.getStateInfo(this.state);
     this.setState({
       educationInfoSaved: true
@@ -42,7 +44,6 @@ class Education extends Component {
 
     return (
       <>
-        <h3>{this.props.title}</h3>
         <div className='main'>
         <form>
           <div>

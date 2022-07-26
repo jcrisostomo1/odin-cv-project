@@ -3,14 +3,12 @@ class Output extends Component {
 
 	constructor(props) {
     super(props);
-
 	}
 
 	render() {
-		console.log(this.props)
+		let lol = this.props.educationItems.map(item => item.education.university)
+		console.log(lol)
 		const { firstName, lastName, email, phone} = this.props.general;
-    const { university, city, degree, subject, edStart, edEnd} = this.props.education;
-    const { companyName, positionTitle, jobDescription, exStart, exEnd } = this.props.experience;
 		
 		return (
 			<>

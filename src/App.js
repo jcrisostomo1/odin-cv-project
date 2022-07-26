@@ -3,6 +3,7 @@ import General from "./components/General";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Output from "./components/Output";
+import uniqid from 'uniqid';
 import './styles/App.css' 
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -12,20 +13,11 @@ class App extends Component {
   
   this.state = {
     preview: false,
-    educationItems: 1,
     general: {
       firstName: '',
       lastName: '',
       email: '',
       phone: ''
-    },
-    education: {
-      university: '',
-      city: '',
-      degree: '',
-      subject: '',
-      start: '',
-      end: '',
     },
     experience: {
       companyName: '',
@@ -36,8 +28,8 @@ class App extends Component {
     },
     educationItems: []
   }
-  
-  this.getGeneralInfo = (childData) => {
+}
+  getGeneralInfo = (childData) => {
     this.setState({
       general: {
         firstName: childData.firstName,
@@ -48,21 +40,20 @@ class App extends Component {
     })
   }
 
-  this.getEducationInfo = (childData) => {
-    this.setState({
-      education: {
-        university: childData.university,
+  getEducationInfo = (childData) => {
+    let key = childData.id;
+    console.log(key)
+    this.setState(prevState => ({
+      educationItems: prevState.educationItems.map(item => item.id === key? {...item, education: {university: childData.university,
         city: childData.city,
         degree: childData.degree,
         subject: childData.subject,
         edStart: childData.edStart,
-        edEnd: childData.edEnd,
-      },
-      educationItems: this.state.educationItems.push(this.state.education)
-    })
-  }
+        edEnd: childData.edEnd} } : item)
+      }))
+    }
 
-  this.getExperienceInfo = (childData) => {
+  getExperienceInfo = (childData) => {
     this.setState({
       experience: {
         companyName: childData.companyName,
@@ -74,14 +65,24 @@ class App extends Component {
     })
   }
 
-  this.showPreview = () => {
+  renderEdComponents = () => 
+    this.state.educationItems.map((item) => (<Education key={item.id} id={item.id} getStateInfo={this.getEducationInfo}></Education>))
+
+  addEducation = () => {
+    this.setState({
+      educationItems: [
+        ...this.state.educationItems, {id: uniqid(), education: {} }
+      ]
+    })
+  }
+    
+  showPreview = () => {
     this.setState({
       preview: !this.state.preview,
     })
     console.log(this.state)
   }
-}
-
+  
   render() {
     const { preview } = this.state;
     return (
@@ -91,8 +92,10 @@ class App extends Component {
         </header>
         <main>
         {preview === false?<>
-        <General title={"Information"} getStateInfo={this.getGeneralInfo}/>
-        <Education title={"Education"} getStateInfo = {this.getEducationInfo}/>
+        <General title={"General Information"} getStateInfo={this.getGeneralInfo}/>
+        <h3>Education</h3>
+        {this.renderEdComponents()}
+        <button onClick={this.addEducation}>Add Education</button>
         <Experience title={"Experience"} getStateInfo={this.getExperienceInfo}/>
         <button onClick={this.showPreview}>Preview</button></>:<Output {...this.state}/>}
         </main>
