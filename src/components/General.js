@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import '../styles/General.css'
 
 class General extends Component {
 	constructor(props) {
@@ -44,16 +43,16 @@ class General extends Component {
       <div>
 				<form>
           <div>
-            {generalInfoSaved?<p>First Name: {firstName}</p>:<input onChange={this.handleChange} value={firstName} type="text" id="firstName" placeholder="First Name" required/>}
+            {generalInfoSaved?<p><strong>First Name: </strong>{firstName}</p>:<input onChange={this.handleChange} value={firstName} type="text" id="firstName" placeholder="First Name" required/>}
           </div> 
           <div>
-            {generalInfoSaved?<p>Last Name: {lastName}</p>:<input onChange={this.handleChange} value={lastName} type="text" id="lastName" placeholder="Last Name" required/>}
+            {generalInfoSaved?<p><strong>Last Name: </strong>{lastName}</p>:<input onChange={this.handleChange} value={lastName} type="text" id="lastName" placeholder="Last Name" required/>}
           </div> 
           <div>
-            {generalInfoSaved?<p>Email: {email}</p>:<input onChange={this.handleChange} value={email} type="email" id="email" placeholder="Email" required/>}
+            {generalInfoSaved?<p><strong>Email: </strong>{email}</p>:<input onChange={this.handleChange} value={email} type="email" id="email" placeholder="Email" required/>}
           </div> 
           <div>
-            {generalInfoSaved?<p>Phone: {phone}</p>:<input onChange={this.handleChange} value={phone} type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"id="phone" placeholder="Phone" required/>}
+            {generalInfoSaved?<p><strong>Phone: </strong>{phone}</p>:<input onChange={this.handleChange} value={phone} type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"id="phone" placeholder="Phone" required/>}
           </div> 
           {generalInfoSaved?<button onClick={this.onEditInfo}>Edit</button>:<button onClick={this.onSaveInfo}>Save</button>}
         </form>

@@ -46,20 +46,20 @@ export default class Experience extends Component {
       <div className='main'>
       <form>
         <div>
-          {experienceInfoSaved?<p>Company: {companyName}</p>:<input onChange={this.handleChange} value={companyName} type="text" id="companyName" placeholder="Company" required/>}
+          {experienceInfoSaved?<p><strong>Company: </strong>{companyName}</p>:<input onChange={this.handleChange} value={companyName} type="text" id="companyName" placeholder="Company" required/>}
         </div> 
         <div>
-          {experienceInfoSaved?<p>Position: {positionTitle}</p>:<input onChange={this.handleChange} value={positionTitle} type="text" id="positionTitle" placeholder="Position" required/>}
+          {experienceInfoSaved?<p><strong>Position: </strong>{positionTitle}</p>:<input onChange={this.handleChange} value={positionTitle} type="text" id="positionTitle" placeholder="Position" required/>}
         </div> 
         <div>
-         {experienceInfoSaved?<p>Job Description: {jobDescription}</p>:<textarea onChange={this.handleChange} value={jobDescription} id="jobDescription" placeholder="Job Description" required/>}
+         {experienceInfoSaved?<p><strong>Job Description: </strong>{jobDescription}</p>:<textarea onChange={this.handleChange} value={jobDescription} id="jobDescription" placeholder="Job Description" required/>}
         </div> 
         <div>
-          {experienceInfoSaved?<p>Start: {exStart}</p>:<><label htmlFor='exStart'>Start: </label>
+          {experienceInfoSaved?<p><strong>Start: </strong>{exStart}</p>:<><label htmlFor='exStart'>Start: </label>
           <input onChange={this.handleChange} value={exStart} type="date" id="exStart" required/></>}
         </div> 
         <div>
-          {experienceInfoSaved?<p>End: {exEnd}</p>:<><label htmlFor='exEnd'>End: </label>
+          {experienceInfoSaved?<p><strong>End: </strong>{exEnd}</p>:<><label htmlFor='exEnd'>End: </label>
           <input onChange={this.handleChange} value={exEnd} type="date" id="exEnd" required/></>}
         </div>
         {experienceInfoSaved?<button onClick={this.onEditInfo}>Edit</button>:<button onClick={this.onSaveInfo}>Save</button> }

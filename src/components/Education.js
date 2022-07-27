@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import "../styles/Education.css"
 
 class Education extends Component {
 	constructor(props) {
@@ -48,23 +47,23 @@ onEditInfo = (e) => {
         <div className='main'>
         <form>
           <div>
-            {educationInfoSaved?<p>University: {university}</p>:<input onChange={this.handleChange} value={university} type="text" id="university" placeholder="University" required/>}
+            {educationInfoSaved?<p><strong>University: </strong>{university}</p>:<input onChange={this.handleChange} value={university} type="text" id="university" placeholder="University" required/>}
           </div> 
           <div>
-            {educationInfoSaved?<p>City: {city}</p>:<input onChange={this.handleChange} value={city} type="text" id="city" placeholder="City" required/>}
+            {educationInfoSaved?<p><strong>City: </strong>{city}</p>:<input onChange={this.handleChange} value={city} type="text" id="city" placeholder="City" required/>}
           </div> 
           <div>
-            {educationInfoSaved?<p>Degree: {degree}</p>:<input onChange={this.handleChange} value={degree} type="text" id="degree" placeholder="Degree" required/>}
+            {educationInfoSaved?<p><strong>Degree: </strong>{degree}</p>:<input onChange={this.handleChange} value={degree} type="text" id="degree" placeholder="Degree" required/>}
           </div> 
           <div>
-            {educationInfoSaved?<p>Subject: {subject}</p>:<input onChange={this.handleChange} value={subject} type="text" id="subject" placeholder="Subject" required/>}
+            {educationInfoSaved?<p><strong>Subject: </strong>{subject}</p>:<input onChange={this.handleChange} value={subject} type="text" id="subject" placeholder="Subject" required/>}
           </div> 
           <div>
-            {educationInfoSaved?<p>Start: {edStart}</p>:<><label htmlFor='edStart'>Start: </label>
+            {educationInfoSaved?<p><strong>Start: </strong>{edStart}</p>:<><label htmlFor='edStart'>Start: </label>
             <input onChange={this.handleChange} value={edStart} type="date" id="edStart" required/></>}
           </div> 
           <div>
-            {educationInfoSaved?<p>End: {edEnd}</p>:<><label htmlFor='edEnd'>End: </label>
+            {educationInfoSaved?<p><strong>End: </strong>{edEnd}</p>:<><label htmlFor='edEnd'>End: </label>
             <input onChange={this.handleChange} value={edEnd} type="date" id="edEnd" required/></>}
           </div>
           {educationInfoSaved?<button onClick={this.onEditInfo}>Edit</button>:<button onClick={this.onSaveInfo}>Save</button>}
