@@ -19,14 +19,8 @@ class App extends Component {
       email: '',
       phone: ''
     },
-    experience: {
-      companyName: '',
-      positionTitle: '',
-      jobDescription: '',
-      start: '',
-      end: ''
-    },
-    educationItems: []
+    educationItems: [],
+    experienceItems: []
   }
 }
   getGeneralInfo = (childData) => {
@@ -54,27 +48,40 @@ class App extends Component {
     }
 
   getExperienceInfo = (childData) => {
-    this.setState({
-      experience: {
+    let key = childData.id;
+    console.log(key)
+    this.setState(prevState => ({
+      experienceItems: prevState.experienceItems.map(item => item.id === key ? {...item, experience:{
         companyName: childData.companyName,
         positionTitle: childData.positionTitle,
         jobDescription: childData.jobDescription,
         exStart: childData.exStart,
         exEnd: childData.exEnd
-      },
-    })
+      } } : item)
+    }))
   }
 
   renderEdComponents = () => 
     this.state.educationItems.map((item) => (<Education key={item.id} id={item.id} getStateInfo={this.getEducationInfo}></Education>))
 
-  addEducation = () => {
-    this.setState({
-      educationItems: [
-        ...this.state.educationItems, {id: uniqid(), education: {} }
-      ]
-    })
-  }
+  renderExComponents = () => 
+    this.state.experienceItems.map((item) => (<Experience key={item.id} id={item.id} getStateInfo={this.getExperienceInfo}></Experience>))
+
+  handleOnClick = (type) => {
+    if (type === 'education') {
+      this.setState({
+        educationItems: [
+          ...this.state.educationItems, {id: uniqid(), education: {} }
+        ]
+      })
+    } else {
+      this.setState({
+        experienceItems: [
+          ...this.state.experienceItems, {id: uniqid(), experience: {}}
+        ]
+      })
+    }
+  } 
     
   showPreview = () => {
     this.setState({
@@ -95,9 +102,11 @@ class App extends Component {
         <General title={"General Information"} getStateInfo={this.getGeneralInfo}/>
         <h3>Education</h3>
         {this.renderEdComponents()}
-        <button onClick={this.addEducation}>Add Education</button>
-        <Experience title={"Experience"} getStateInfo={this.getExperienceInfo}/>
-        <button onClick={this.showPreview}>Preview</button></>:<Output {...this.state}/>}
+        <button onClick={()=> this.handleOnClick('education')}>Add Education</button>
+        <h3>Experience</h3>
+        {this.renderExComponents()}
+        <button onClick={()=> this.handleOnClick('experience')}>Add Experience</button>
+        <button onClick={this.showPreview}>Preview</button></>:<Output showPreview={this.showPreview} {...this.state}/>}
         </main>
         <footer>
           <a href="https://github.com/jcrisostomo1" target="_blank"><i className="fa fa-github fa-lg"></i></a>

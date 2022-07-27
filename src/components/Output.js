@@ -5,9 +5,9 @@ class Output extends Component {
     super(props);
 	}
 
+
 	render() {
 		let lol = this.props.educationItems.map(item => item.education.university)
-		console.log(lol)
 		const { firstName, lastName, email, phone} = this.props.general;
 		
 		return (
@@ -16,7 +16,7 @@ class Output extends Component {
 			<p>{lastName}</p>
 			<p>{email}</p>
 			<p>{phone}</p>
-			<button>Edit</button>
+			<button onClick={this.props.showPreview}>Edit</button>
 			</>
 			
 		)

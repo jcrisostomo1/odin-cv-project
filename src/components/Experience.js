@@ -11,29 +11,31 @@ export default class Experience extends Component {
       positionTitle: '',
       jobDescription: '',
       exStart: '',
-      exEnd: ''
+      exEnd: '',
+      id: this.props.id
     }
 
-    this.handleChange  = (e) =>  {
-      this.setState({
-        [e.target.id]: e.target.value,
-      });
-    }
-  
-    this.onSaveInfo = (e) => {
-      e.preventDefault();
-      this.props.getStateInfo(this.state);
-      this.setState({
-        experienceInfoSaved: true
-      })
-    }
+  }
 
-    this.onEditInfo = (e) => {
-      e.preventDefault();
-      this.setState({
-        experienceInfoSaved: false
-      })
-    }
+  handleChange  = (e) =>  {
+    this.setState({
+      [e.target.id]: e.target.value,
+    });
+  }
+
+  onSaveInfo = (e) => {
+    e.preventDefault();
+    this.props.getStateInfo(this.state);
+    this.setState({
+      experienceInfoSaved: true
+    })
+  }
+
+  onEditInfo = (e) => {
+    e.preventDefault();
+    this.setState({
+      experienceInfoSaved: false
+    })
   }
 
   render() {
@@ -41,7 +43,6 @@ export default class Experience extends Component {
     
     return (
       <>
-      <h3>{this.props.title}</h3>
       <div className='main'>
       <form>
         <div>

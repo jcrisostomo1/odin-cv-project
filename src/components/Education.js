@@ -15,28 +15,28 @@ class Education extends Component {
       edEnd: '',
       id: this.props.id
   }
+}
 
-  this.handleChange  = (e) =>  {
-    this.setState({
-      [e.target.id]: e.target.value,
-    })
-  }
+handleChange  = (e) =>  {
+  this.setState({
+    [e.target.id]: e.target.value,
+  })
+}
 
-  this.onSaveInfo = (e) => {
-    e.preventDefault();
-    console.log(this.state)
-    this.props.getStateInfo(this.state);
-    this.setState({
-      educationInfoSaved: true
-    })
-  }
+onSaveInfo = (e) => {
+  e.preventDefault();
+  console.log(this.state)
+  this.props.getStateInfo(this.state);
+  this.setState({
+    educationInfoSaved: true
+  })
+}
 
-  this.onEditInfo = (e) => {
-    e.preventDefault();
-    this.setState({
-      educationInfoSaved: false
-    })
-  }
+onEditInfo = (e) => {
+  e.preventDefault();
+  this.setState({
+    educationInfoSaved: false
+  })
 }
 
   render() {
