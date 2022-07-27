@@ -62,10 +62,10 @@ class App extends Component {
   }
 
   renderEdComponents = () => 
-    this.state.educationItems.map((item) => (<Education key={item.id} id={item.id} getStateInfo={this.getEducationInfo}></Education>))
+    this.state.educationItems.map((item) => (<Education key={item.id} id={item.id} getStateInfo={this.getEducationInfo} handleDelete={this.handleDelete}></Education>))
 
   renderExComponents = () => 
-    this.state.experienceItems.map((item) => (<Experience key={item.id} id={item.id} getStateInfo={this.getExperienceInfo}></Experience>))
+    this.state.experienceItems.map((item) => (<Experience key={item.id} id={item.id} getStateInfo={this.getExperienceInfo} handleDelete={this.handleDelete}></Experience>))
 
   handleOnClick = (type) => {
     if (type === 'education') {
@@ -82,6 +82,18 @@ class App extends Component {
       })
     }
   } 
+
+  handleDelete = (type, id) => {
+    if (type === 'education') {
+      this.setState({
+        educationItems: this.state.educationItems.filter(item => item.id !== id)
+      })
+    } else {
+      this.setState ({
+        experienceItems: this.state.experienceItems.filter(item => item.id !== id)
+      })
+    }
+  }
     
   showPreview = () => {
     this.setState({

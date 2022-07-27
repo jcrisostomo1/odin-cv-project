@@ -6,13 +6,13 @@ export default class Experience extends Component {
     super(props)
 
     this.state = {
+      id: this.props.id,
       experienceInfoSaved: false,
       companyName: '',
       positionTitle: '',
       jobDescription: '',
       exStart: '',
       exEnd: '',
-      id: this.props.id
     }
 
   }
@@ -39,7 +39,7 @@ export default class Experience extends Component {
   }
 
   render() {
-    const {companyName, positionTitle, jobDescription, exStart, exEnd, experienceInfoSaved} = this.state;
+    const { id, experienceInfoSaved, companyName, positionTitle, jobDescription, exStart, exEnd} = this.state;
     
     return (
       <>
@@ -63,6 +63,7 @@ export default class Experience extends Component {
           <input onChange={this.handleChange} value={exEnd} type="date" id="exEnd" required/></>}
         </div>
         {experienceInfoSaved?<button onClick={this.onEditInfo}>Edit</button>:<button onClick={this.onSaveInfo}>Save</button> }
+        <button type="button" onClick={()=>this.props.handleDelete('experience', id)}>Delete</button>
       </form>
       </div>
       </>

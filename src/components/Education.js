@@ -6,6 +6,7 @@ class Education extends Component {
 		super(props)
   
     this.state = {
+      id: this.props.id,
       educationInfoSaved: false,
       university: '',
       city: '',
@@ -13,7 +14,6 @@ class Education extends Component {
       subject: '',
       edStart: '',
       edEnd: '',
-      id: this.props.id
   }
 }
 
@@ -40,7 +40,8 @@ onEditInfo = (e) => {
 }
 
   render() {
-    const { university, city, degree, subject, edStart, edEnd, educationInfoSaved} = this.state;
+    console.log(this.props)
+    const { id, educationInfoSaved, university, city, degree, subject, edStart, edEnd } = this.state;
 
     return (
       <>
@@ -66,11 +67,12 @@ onEditInfo = (e) => {
             {educationInfoSaved?<p>End: {edEnd}</p>:<><label htmlFor='edEnd'>End: </label>
             <input onChange={this.handleChange} value={edEnd} type="date" id="edEnd" required/></>}
           </div>
-          {educationInfoSaved?<button onClick={this.onEditInfo}>Edit</button>:<button onClick={this.onSaveInfo}>Save</button>} 
+          {educationInfoSaved?<button onClick={this.onEditInfo}>Edit</button>:<button onClick={this.onSaveInfo}>Save</button>}
+          <button type="button" onClick={() => this.props.handleDelete('education', id)}>Delete</button>
         </form>
       </div>
     </>
     )}
-}
+  }
 
 export default Education;
