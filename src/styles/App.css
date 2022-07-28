@@ -18,13 +18,9 @@ h3 {
     text-decoration: underline;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form p {
-    margin: 6px;
+label {
+    font-weight: bold;
+    
 }
 
 footer {
