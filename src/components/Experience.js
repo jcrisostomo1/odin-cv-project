@@ -47,7 +47,7 @@ export default class Experience extends Component {
         <div className={experienceStyles.form}>
           <div>
             {experienceInfoSaved?<p><strong>Company: </strong>{companyName}</p>
-            :<><label htmlFor="companyName">Company Name:</label><input onChange={this.handleChange} value={companyName} type="text" id="companyName" placeholder="Company" required/></>}
+            :<><label htmlFor="companyName">Company: </label><input onChange={this.handleChange} value={companyName} type="text" id="companyName" placeholder="Company" required/></>}
           </div> 
           <div>
             {experienceInfoSaved?<p><strong>Position: </strong>{positionTitle}</p>
