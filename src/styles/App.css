@@ -16,6 +16,7 @@ main {
 
 h3 {
     text-decoration: underline;
+    margin: 8px;
 }
 
 label {
@@ -23,13 +24,11 @@ label {
     width: 100px;
     text-align: right;
     font-weight: bold;
+    margin-right: 5px;
 }
 
 
 p {
-    display: inline-block;
-    width: 100px;
-    text-align: right;
     margin: 0px;
 }
 

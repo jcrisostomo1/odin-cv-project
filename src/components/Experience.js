@@ -61,11 +61,11 @@ export default class Experience extends Component {
             {experienceInfoSaved?<p><strong>End: </strong>{exEnd}</p>:<><label htmlFor='exEnd'>End: </label>
             <input onChange={this.handleChange} value={exEnd} type="date" id="exEnd" required/></>}
           </div>
-        </div>
-        <div className={experienceStyles.jobDescription}>
+          <div className={experienceStyles.jobDescription}>
           {experienceInfoSaved?<p><strong>Job Description: </strong>{jobDescription}</p>
           :<><label htmlFor="jobDescription">Job Description:</label><textarea onChange={this.handleChange} value={jobDescription} id="jobDescription" placeholder="Job Description" required/></>}
         </div> 
+        </div>
         <div>
           {experienceInfoSaved?<button onClick={this.onEditInfo}>Edit</button>:<button onClick={this.onSaveInfo}>Save</button> }
           <button type="button" onClick={()=>this.props.handleDelete('experience', id)}>Delete</button>
