@@ -62,8 +62,8 @@ export default class Experience extends Component {
             <input onChange={this.handleChange} value={exEnd} type="date" id="exEnd" required/></>}
           </div>
           <div className={experienceStyles.jobDescription}>
-          {experienceInfoSaved?<p><strong>Job Description: </strong>{jobDescription}</p>
-          :<><label htmlFor="jobDescription">Job Description:</label><textarea onChange={this.handleChange} value={jobDescription} id="jobDescription" placeholder="Job Description" required/></>}
+          {experienceInfoSaved?<div className={experienceStyles.textarea}><p className={experienceStyles.text}><strong>Job Description: </strong>{jobDescription}</p></div>
+          :<textarea onChange={this.handleChange} value={jobDescription} id="jobDescription" placeholder="Job Description" rows="4" cols="50" required/>}
         </div> 
         </div>
         <div>
