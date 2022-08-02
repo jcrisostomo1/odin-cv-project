@@ -2,7 +2,6 @@ import React, {Component} from "react";
 import General from "./components/General";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
-import Output from "./components/Output";
 import uniqid from 'uniqid';
 import './styles/App.css' 
 import 'font-awesome/css/font-awesome.min.css';
@@ -12,7 +11,6 @@ class App extends Component {
     super();
   
   this.state = {
-    preview: false,
     general: {
       firstName: '',
       lastName: '',
@@ -94,23 +92,14 @@ class App extends Component {
       })
     }
   }
-    
-  showPreview = () => {
-    this.setState({
-      preview: !this.state.preview,
-    })
-    console.log(this.state)
-  }
   
   render() {
-    const { preview } = this.state;
     return (
       <div>
         <header> 
           <h1>CV Application</h1>
         </header>
         <main>
-        {preview === false?<>
         <General title={"General Information"} getStateInfo={this.getGeneralInfo}/>
         <h3>Education</h3>
         {this.renderEdComponents()}
@@ -118,10 +107,9 @@ class App extends Component {
         <h3>Experience</h3>
         {this.renderExComponents()}
         <button onClick={()=> this.handleOnClick('experience')}>Add Experience</button>
-        <button onClick={this.showPreview}>Preview</button></>:<Output showPreview={this.showPreview} {...this.state}/>}
         </main>
         <footer>
-          <a href="https://github.com/jcrisostomo1" target="_blank"><i className="fa fa-github fa-lg"></i></a>
+          <a href="https://github.com/jcrisostomo1" rel="noreferrer" target="_blank"><i className="fa fa-github fa-lg"></i></a>
           <p>Made by: jcrisostomo1</p>
       </footer>
       </div>

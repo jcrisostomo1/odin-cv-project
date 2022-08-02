@@ -23,3 +23,10 @@
 .jobDescription label {
   text-align: center;
 }
+
+.textarea {
+  width: 200px;
+  margin: 0 auto;
+  overflow: hidden;
+  word-wrap: break-word;
+}
